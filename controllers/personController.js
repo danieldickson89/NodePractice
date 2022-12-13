@@ -22,9 +22,11 @@ exports.getPerson = (req, res, next) => {
 exports.createPerson = (req, res, next) => {
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
+    const age = req.body.age;
     const newPerson = new Person({
         firstName: firstName,
-        lastName: lastName
+        lastName: lastName,
+        age: age
     });
     newPerson.save()
     .then(response => {
@@ -44,10 +46,12 @@ exports.updatePerson = (req, res, next) => {
     const id = req.params.id;
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
+    const age = req.body.age;
     Person.findById(id)
     .then(person => {
         person.firstName = firstName;
         person.lastName = lastName;
+        person.age = age;
         person.save()
         .then(response => {
             res.status(200).json({

@@ -10,6 +10,10 @@ const aboutSchema = new Schema ({
     lastName: {
         type: String,
         required: true
+    },
+    age: {
+        type: Number,
+        required: true
     }
 });
 

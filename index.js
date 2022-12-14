@@ -19,7 +19,7 @@ app
 .use(express.json())
 .use(express.urlencoded({extended: true}))
 .use(cors())
-.use('/nodepractice', require("./routes"))
+.use('/', require("./routes"))
 
 mongoose.connect(
     MONGODB_URL, options
